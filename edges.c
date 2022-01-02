@@ -12,7 +12,7 @@
 //Adding an edge (source,destination,weight)
 void add_edge(pnode Src, pnode Dest, int Weight)
 {
-    if (!n || !to)
+    if (!Src || !Dest)
         return;
     
     pedge new_edge = (pedge)malloc(sizeof(edge));
@@ -25,10 +25,10 @@ void add_edge(pnode Src, pnode Dest, int Weight)
 
     pedge EDG = Src->edges;
 
-    while (EDG && ed->next)
+    while (EDG && EDG->next)
     {
 
-        EDG = ed->next;
+        EDG = EDG->next;
     }
 
     if (!EDG)
@@ -47,16 +47,16 @@ void printEdges(pnode node)
     if (node == NULL)
         return;
 
-    pedge E = node->edges;
+    pedge Edge = node->edges;
     printf("node %d edges are :\n", node->node_num);
 
 
 
 
-    while (E)
+    while (Edge)
     {
-        printf("id %d weight %d , ", e->endpoint->node_num, e->weight);
-        E = E->next;
+        printf("id %d weight %d , ", Edge->endpoint->node_num, Edge->weight);
+        Edge = Edge->next;
     }
     printf("\n");
 }
