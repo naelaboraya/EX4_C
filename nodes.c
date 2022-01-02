@@ -56,7 +56,7 @@ void insert_node_cmd(pnode *head)
     int weight, dest;
     while (scanf("%d", &dest) > 0)
     {
-        scanf("%d", &w);
+        scanf("%d", &weight);
         add_edge(new_node, get_node(*head, dest), weight);
     }
 
@@ -186,7 +186,7 @@ char build_graph_cmd(pnode *head)
             while (scanf("%d", &dest) > 0)
             {
                 scanf("%d", &weight);
-                insert_edge(node, get_node(*head, dest), weight);
+                add_edge(node, get_node(*head, dest), weight);
             }
         }
 
