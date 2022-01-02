@@ -103,7 +103,7 @@ int Dijkstra_Algorithm(pnode head, int src, int dest)
     for (int i = 0; i < dist_length; i++)
     {
         is_v[i] = 0;
-        if (getNode(head, i) == NULL)
+        if (get_node(head, i) == NULL)
             is_v[i] = 1;
     }
 
@@ -115,7 +115,7 @@ int Dijkstra_Algorithm(pnode head, int src, int dest)
     int min;
     while (!is_empty(is_v, dist_length) && (min = Minimum(dist, is_v, dist_length)) != -1)
     {
-        pnode p = getNode(head, min);
+        pnode p = get_node(head, min);
         pedge edge = p->edges;
         while (edge)
         {
