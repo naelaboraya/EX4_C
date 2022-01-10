@@ -44,13 +44,16 @@ void add_edge(pnode Src, pnode Dest, int Weight)
 }
 
 
+
+
 //printing the edges
-void printEdges(pnode node)
+void print_edges(pnode node)
 {
     if (node == NULL)
         return;
 
     pedge Edge = node->edges;
+    
     printf("node %d edges are :\n", node->node_num);
 
 
@@ -59,15 +62,30 @@ void printEdges(pnode node)
     while (Edge)
     {
         printf("id %d weight %d , ", Edge->endpoint->node_num, Edge->weight);
+        
         Edge = Edge->next;
     }
     printf("\n");
 }
 
 
+void remove_out(pnode n)
+{
+    // delete out edges
+    pedge ed = n->edges;
+    while (ed)
+    {
+        pedge e = ed;
+        ed = ed->next;
+        free(e);
+    }
+    n->edges = NULL;
+}
 
 
-void delete_edges(pnode NODE, pnode n)
+
+
+void remove_edge(pnode NODE, pnode n)
 {
     if (NODE == NULL)
         return;
@@ -105,15 +123,4 @@ void delete_edges(pnode NODE, pnode n)
     }
 }
 
-void delete_out_edges(pnode n)
-{
-    // delete out edges
-    pedge ed = n->edges;
-    while (ed)
-    {
-        pedge e = ed;
-        ed = ed->next;
-        free(e);
-    }
-    n->edges = NULL;
-}
+
