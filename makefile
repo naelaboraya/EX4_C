@@ -1,10 +1,14 @@
 
-Wall = -Wall
 CC = gcc
 
 
+Wall = -Wall
 
-.PHONY : all clean 
+
+
+
+
+.PHONY : all
 
 
 
@@ -35,6 +39,7 @@ nodes.o : nodes.c graph.h nodes.h
 	${CC} ${Wall} -c nodes.c
 
 
+.PHONY : clean
 
 clean :
 	rm -rf *.o graph 
