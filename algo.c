@@ -8,23 +8,6 @@
 
 
 
-
-
-
-
-// int getGraphSize(pnode h)
-// {
-//     int cnt = 0;
-//     while (h)
-//     {
-//         cnt++;
-//         h = h->next;
-//     }
-//     return cnt;
-// }
-
-
-
 int maximum_key(pnode NODE)
 {
     if (NODE == NULL)
