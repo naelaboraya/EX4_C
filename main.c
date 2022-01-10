@@ -53,6 +53,6 @@ int main(int argc, char const *argv[])
             }
         }
     }
-
+    deleteGraph_cmd(&graph);
     return 0;
 }
