@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <limits.h>
 
-int main(int argc, char const *argv[])
+int main()
 {
     pnode graph = NULL;
 
