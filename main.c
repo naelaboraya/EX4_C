@@ -1,58 +1,76 @@
-#include "graph.h"
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <limits.h>
+
+#include "graph.h"
+
+
 
 int main()
 {
-    pnode graph = NULL;
 
-    int flag = 1;
-    int hasNextChar = 0;
-    char scanedChar;
-    while (flag)
+    
+    char ch;
+
+    int check = 1;
+    
+    int temp = 0;
+
+
+    //graph
+    pnode G = NULL;
+
+
+
+    while (check)
     {
-        if (!hasNextChar)
+        if (!temp)
         {
-            int in = scanf(" %c", &scanedChar);
+            int in = scanf(" %c", &ch);
             if (in == 0 || in == -1)
             {
-                flag = 0;
+                check = 0;
             }
         }
-        if (flag)
+        if (check)
         {
-            hasNextChar = 0;
-            switch (scanedChar)
-            {
-            case 'A':
-                scanedChar = build_graph_cmd(&graph);
-                hasNextChar = 1;
-                break;
-
-            case 'B':
-                insert_node_cmd(&graph);
-                break;
-
-            case 'D':
-                delete_node_cmd(&graph);
-                break;
-
-            case 'P':
-                printGraph_cmd(graph);
-                break;
-
-            case 'S':
-                shortsPath_cmd(graph);
-                break;
-
-            case 'T':
-                TSP_cmd(graph);
-                break;
+            temp = 0;
+            
+            
+            if(ch=='A'){
+                ch = build_graph_cmd(&G);
+                temp = 1;
+                
             }
+
+            else if (ch=='B'){
+                insert_node_cmd(&G);
+            
+            }
+
+
+            else if (ch=='D'){
+                delete_node_cmd(&G);
+            }
+
+
+            else if (ch=='P'){
+                printGraph_cmd(G);
+            }
+
+
+            else if (ch=='S'){
+                shortsPath_cmd(G);
+                }
+
+
+            else if (ch=='T'){
+                TSP_cmd(G);
+            }
+            
         }
     }
-    deleteGraph_cmd(&graph);
+     deleteGraph_cmd(&G);
     return 0;
 }
