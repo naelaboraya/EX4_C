@@ -1,7 +1,9 @@
-#include "graph.h"
-#include "edges.h"
 #include <stdio.h>
 #include <stdlib.h>
+
+
+#include "graph.h"
+#include "edges.h"
 
 
 
@@ -49,7 +51,7 @@ void insert_node_cmd(pnode *head)
     else
     {
         is_there_node = 1;
-        delete_out_edges(new_node);
+        remove_out(new_node);
     }
 
     // insert edges
@@ -109,7 +111,7 @@ void delete_node_cmd(pnode *head)
         return;
 
     // delete edges
-    delete_edges(*head, p);
+    remove_edge(*head, p);
     // free node
     *previous = p->next;
     free(p);
@@ -121,7 +123,7 @@ void printGraph_cmd(pnode head)
     {
         printf("\\%d\\  \n", head->node_num);//the id/key
 
-        printEdges(head);//printing the edges
+        print_edges(head);//printing the edges
 
         head = head->next;
     }
@@ -134,7 +136,7 @@ void deleteGraph_cmd(pnode *head)
 
     while (p)
     {
-        delete_out_edges(p);
+        remove_out(p);
         pnode temp = p;
         p = p->next;
         free(temp);
